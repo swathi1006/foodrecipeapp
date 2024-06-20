@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../model/recipeModel.dart';
+import '../view/detailedRecipe.dart';
 
 class RecipeGridView extends StatelessWidget {
   final List<Recipe> recipes;
@@ -24,11 +25,11 @@ class RecipeGridView extends StatelessWidget {
           final recipe = recipes[index];
           return GestureDetector(
               onTap: () {
-                // Navigator.push(
-                //     context,
-                //     MaterialPageRoute(
-                //       builder: (context) => RecipeDetails(recipe: recipe),
-                //     ));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => DetailedRecipe(recipe: recipe),
+                    ));
               },
               child: Card(
                 elevation: 5,

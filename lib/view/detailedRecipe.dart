@@ -15,7 +15,7 @@ class DetailedRecipe extends StatelessWidget {
           title: Text(recipe.name ?? 'Recipe'),  ),
 
       body: SingleChildScrollView(
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -24,8 +24,24 @@ class DetailedRecipe extends StatelessWidget {
                height: 200,
                width: double.infinity,
               fit: BoxFit.cover,),
-            SizedBox(height: 16,),
-
+            const SizedBox(height: 16,),
+            const Text("Ingredients",style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18.0),),
+            const SizedBox(height: 8,),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: List.generate(
+                  recipe.ingredients?.length ?? 0,
+                  (index) => Text('- ${recipe.ingredients![index]}')  ),
+            ),
+            const SizedBox(height: 16,),
+            const Text('Instructions', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18.0),),
+            const SizedBox(height: 8,),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: List.generate(
+                  recipe.instructions?.length ?? 0,
+                  (index) => Text("${index + 1}.${recipe.instructions![index]}")),
+            )
           ],
         ),
       ),

@@ -13,7 +13,8 @@ class RecipeHome extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Food Recipes"),
+
+        title: Text("Food Recipes",style: TextStyle(color: Colors.white),),
         backgroundColor: Colors.teal,
         actions: [
           IconButton(onPressed: () async{
